@@ -46,7 +46,7 @@ export function gtagSendEvent(conversionId, data = {}) {
   });
 
   gtag('event', 'conversion', {
-    send_to: `AW-XXXXXXXXXX/${conversionId}`,
+    send_to: `${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}/${conversionId}`,
     event_callback: () => {},
   });
 
