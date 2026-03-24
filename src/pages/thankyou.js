@@ -4,7 +4,7 @@ import { content } from '@content';
 export default function ThankYou() {
   return (
     <section className="relative flex flex-col flex-grow items-center justify-center px-6 py-24">
-      <div className="max-w-lg w-full flex flex-col items-center text-center gap-8">
+      <div className="container w-full flex flex-col items-center text-center gap-8">
 
         {/* Icon */}
         <div className="w-20 h-20 rounded-full bg-brand-5/10 flex items-center justify-center">

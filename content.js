@@ -221,4 +221,8 @@ export const content = {
     tagline: 'Infraestructura tecnológica para empresas que no se detienen.',
     copy: '© 2025 PGC Soluciones. Todos los derechos reservados.',
   },
+  thankyou: {
+    title: 'Gracias por registrarte',
+    description: 'Uno de nuestros técnicos especilaistas en soluciones de negocios te contactará en máximo 24 horas'
+  }
 };
