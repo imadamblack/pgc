@@ -21,6 +21,7 @@ export default function OptInForm({ lastClick = '', utm = {} }) {
     data.whatsapp = normalizeWhatsapp(data.phone);
     data.origin = info.companyName + ' Landing';
     data.lastClick = lastClick;
+    data.dateAdded = Date.now();
 
     const _fbc = getCookie('_fbc');
     const _fbp = getCookie('_fbp');

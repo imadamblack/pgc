@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { content } from '/content';
 import OptInForm from '@/components/form/opt-in-form';
 
-// ── Icons ──────────────────────────────────────────────────────────────────
 const Icon = ({name, className = 'w-5 h-5'}) => {
   const icons = {
     globe: (
@@ -100,9 +99,7 @@ const Icon = ({name, className = 'w-5 h-5'}) => {
   };
   return icons[name] || null;
 };
-
-// ── CTA Button ─────────────────────────────────────────────────────────────
-const CTAButton = ({children, variant = 'primary', href= '#contact', className = ''}) => {
+const CTAButton = ({children, variant = 'primary', href= '/#contact', className = ''}) => {
   if (variant === 'primary') {
     return (
       <a
@@ -123,15 +120,11 @@ const CTAButton = ({children, variant = 'primary', href= '#contact', className =
     </a>
   );
 };
-
-// ── Section Label ──────────────────────────────────────────────────────────
 const Eyebrow = ({children}) => (
   <span className="-ft-3 inline-block font-bold tracking-[0.2em] uppercase text-[#27d53b] mb-3">
     {children}
   </span>
 );
-
-// ── Nav ────────────────────────────────────────────────────────────────────
 const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
@@ -174,8 +167,6 @@ const Nav = () => {
     </nav>
   );
 };
-
-// ── Hero ───────────────────────────────────────────────────────────────────
 const Hero = () => (
   <section className="pt-56 pb-24 px-6 relative overflow-hidden" style={{backgroundColor: '#020617'}}>
     {/* Background grid */}
@@ -234,8 +225,6 @@ const Hero = () => (
     </div>
   </section>
 );
-
-// ── Beneficios ─────────────────────────────────────────────────────────────
 const Beneficios = () => (
   <section id="beneficios" className="py-24 px-6 bg-white">
     <div className="container mx-auto">
@@ -269,8 +258,6 @@ const Beneficios = () => (
     </div>
   </section>
 );
-
-// ── Atributos / How we work ─────────────────────────────────────────────────
 const Atributos = () => (
   <section className="py-24 px-6 relative overflow-hidden" style={{backgroundColor: '#020617'}}>
     <div
@@ -314,8 +301,6 @@ const Atributos = () => (
     </div>
   </section>
 );
-
-// ── Servicios ──────────────────────────────────────────────────────────────
 const Servicios = () => (
   <section id="servicios" className="py-24 px-6 bg-neutral-50">
     <div className="container mx-auto">
@@ -356,8 +341,6 @@ const Servicios = () => (
     </div>
   </section>
 );
-
-// ── Testimonios ────────────────────────────────────────────────────────────
 const Testimonios = () => (
   <section id="testimonios" className="py-24 px-6 bg-white">
     <div className="container mx-auto">
@@ -394,8 +377,6 @@ const Testimonios = () => (
     </div>
   </section>
 );
-
-// ── FAQ ────────────────────────────────────────────────────────────────────
 const FAQ = () => {
   const [open, setOpen] = useState(null);
   return (
@@ -441,8 +422,6 @@ const FAQ = () => {
     </section>
   );
 };
-
-// ── CTA Final ──────────────────────────────────────────────────────────────
 const CTAFinal = () => (
   <section id="contact" className="py-24 px-6 bg-green-600 relative overflow-hidden">
 
@@ -457,8 +436,6 @@ const CTAFinal = () => (
     </div>
   </section>
 );
-
-// ── Footer ─────────────────────────────────────────────────────────────────
 const Footer = () => (
   <footer className="py-10 px-6 border-t border-white/5" style={{backgroundColor: '#020617'}}>
     <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
@@ -473,7 +450,6 @@ const Footer = () => (
   </footer>
 );
 
-// ── Page ───────────────────────────────────────────────────────────────────
 export default function PGCLandingPage() {
   return (
     <main className="font-sans antialiased">
