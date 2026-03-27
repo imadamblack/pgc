@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { getCookie, setCookie } from 'cookies-next';
 import { useState } from 'react';
 import { emailRegExp, normalizeWhatsapp, restrictNumber } from '@/utils/formValidators';
-import fbEvent, { gtagSendEvent } from '@/services/fbEvents';
+import fbEvent from '@/services/fbEvents';
 import { info } from '@info';
 
 // ─── Basic opt-in form (name + phone).
@@ -84,6 +84,18 @@ export default function OptInForm({ lastClick = '', utm = {} }) {
         />
         {errors.email && (
           <p className="-ft-2 text-brand-3">{errors.email.message}</p>
+        )}
+
+        <input
+          {...register('company', {
+            required: 'Cómo se llama tu empresa?',
+            pattern: { value: emailRegExp, message: 'Revisa tu correo' },
+          })}
+          className={errors.email ? '!border-brand-3' : ''}
+          placeholder="Tu empresa?"
+        />
+        {errors.company && (
+          <p className="-ft-2 text-brand-3">{errors.company.message}</p>
         )}
 
         <button

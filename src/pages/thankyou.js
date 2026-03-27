@@ -1,5 +1,6 @@
 import { info } from '@info';
 import { content } from '@content';
+import fbEvent from '@/services/fbEvents';
 
 export default function ThankYou() {
   return (
@@ -25,6 +26,7 @@ export default function ThankYou() {
         {info.whatsapp.value && (
           <a
             href={`https://wa.me/${info.whatsapp.value}?text=${encodeURIComponent(info.whatsapp.message)}`}
+            onClick={() => fbEvent('Contact')}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-brand-5 text-white font-semibold px-8 py-4 rounded-xl hover:brightness-110 transition-all ft-0"
