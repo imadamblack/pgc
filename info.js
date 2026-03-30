@@ -12,10 +12,10 @@ export const info = {
     subject: "Nuevo prospecto",
   },
 
-  phoneNumber: "+523317698384",
+  phoneNumber: "+524496606955",
 
   whatsapp: {
-    value: "+523317698384",
+    value: "+524496606955",
     message: "Hola, me interesa conocer más información",
   },
 
