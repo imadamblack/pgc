@@ -89,7 +89,6 @@ export default function OptInForm({ lastClick = '', utm = {} }) {
         <input
           {...register('company', {
             required: 'Cómo se llama tu empresa?',
-            pattern: { value: emailRegExp, message: 'Revisa tu correo' },
           })}
           className={errors.email ? '!border-brand-3' : ''}
           placeholder="Tu empresa?"
