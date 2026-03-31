@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { content } from '/content';
 import OptInForm from '@/components/form/opt-in-form';
+import scrollDepth from '@/utils/scrollDepth';
 
 const Icon = ({name, className = 'w-5 h-5'}) => {
   const icons = {
@@ -451,6 +452,13 @@ const Footer = () => (
 );
 
 export default function PGCLandingPage() {
+  useEffect(() => {
+    scrollDepth({
+      values: [25, 50, 75, 100],
+      callback: (value) => fbq('trackCustom', `Scroll Depth: ${value}`),
+    });
+  });
+
   return (
     <main className="font-sans antialiased">
       <Nav/>
