@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { emailRegExp, normalizeWhatsapp, restrictNumber } from '@/utils/formValidators';
 import fbEvent from '@/services/fbEvents';
 import { info } from '@info';
+import { Select } from '@/components/form/formAtoms';
 
 // ─── Basic opt-in form (name + phone).
 // For a richer form add more fields — see doble-acento's opt-in-form for reference.
@@ -53,12 +54,9 @@ export default function OptInForm({ lastClick = '', utm = {} }) {
       >
         <input
           {...register('fullName', { required: 'Escribe tu nombre' })}
-          className={errors.fullName ? '!border-brand-3' : ''}
+          className={errors.fullName ? '!border-brand-3 !bg-red-200' : ''}
           placeholder="Nombre completo"
         />
-        {errors.fullName && (
-          <p className="-ft-2 text-brand-3">{errors.fullName.message}</p>
-        )}
 
         <input
           {...register('phone', {
@@ -66,36 +64,76 @@ export default function OptInForm({ lastClick = '', utm = {} }) {
             maxLength: { value: 10, message: 'Ingresa 10 dígitos' },
             minLength: { value: 10, message: 'Ingresa 10 dígitos' },
           })}
-          className={errors.phone ? '!border-brand-3' : ''}
+          className={errors.phone ? '!border-brand-3 !bg-red-200' : ''}
           onKeyDown={restrictNumber}
           placeholder="WhatsApp (10 dígitos)"
         />
-        {errors.phone && (
-          <p className="-ft-2 text-brand-3">{errors.phone.message}</p>
-        )}
 
         <input
           {...register('email', {
             required: 'Escribe tu correo',
             pattern: { value: emailRegExp, message: 'Revisa tu correo' },
           })}
-          className={errors.email ? '!border-brand-3' : ''}
+          className={errors.email ? '!border-brand-3 !bg-red-200' : ''}
           placeholder="Correo electrónico"
         />
-        {errors.email && (
-          <p className="-ft-2 text-brand-3">{errors.email.message}</p>
-        )}
 
         <input
           {...register('company', {
             required: 'Cómo se llama tu empresa?',
           })}
-          className={errors.email ? '!border-brand-3' : ''}
-          placeholder="Tu empresa?"
+          className={errors.company ? '!border-brand-3 !bg-red-200' : ''}
+          placeholder="Cómo se llama tu empresa?"
         />
-        {errors.company && (
-          <p className="-ft-2 text-brand-3">{errors.company.message}</p>
-        )}
+
+        <input
+          {...register('jobTitle', {
+            required: 'Cuál es tu puesto?',
+          })}
+          className={errors.jobTitle ? '!border-brand-3 !bg-red-200' : ''}
+          placeholder="Tu puesto"
+        />
+
+        <Select
+          options={[
+            {value: '1-10', name: '1 a 10'},
+            {value: '11-30', name: '11 a 30'},
+            {value: '30-50', name: '30 a 50'},
+            {value: '50+', name: 'Más de 50'},
+          ]}
+          name="companySize"
+          inputOptions={{required: true}}
+          placeholder="¿Cuántos colaboradores tiene tu empresa?"
+          className={`rounded-md px-6 py-4 bg-white ${errors.companySize && '!bg-red-200'}`}
+        />
+
+        <Select
+          options={[
+            {value: 'departamento-completo', name: 'Sí, todo un departamento'},
+            {value: '1-2-personas', name: 'Sí, 1 a 2 personas'},
+            {value: 'externo', name: 'Técnicos externos por evento'},
+            {value: 'nada', name: 'No tenemos nada'},
+          ]}
+          name="itTeam"
+          inputOptions={{required: true}}
+          placeholder="¿Tienen equipo de IT?"
+          className={`rounded-md px-6 py-4 bg-white ${errors.itTeam && '!bg-red-200'}`}
+        />
+
+        <Select
+          options={[
+            {value: 'red-conectividad', name: 'Red y conectividad'},
+            {value: 'servidores', name: 'Servidores'},
+            {value: 'seguridad-respaldos', name: 'Seguridad y respaldos'},
+            {value: 'equipos-computo', name: 'Equipos de cómputo'},
+            {value: 'acceso-remoto', name: 'Acceso remoto'},
+            {value: 'no-sabe', name: 'No sé por donde empezar'},
+          ]}
+          name="preocupacion"
+          inputOptions={{required: true}}
+          placeholder="¿Qué te preocupa más de tu infraestructura?"
+          className={`rounded-md px-6 py-4 bg-white ${errors.preocupacion && '!bg-red-200'}`}
+        />
 
         <button
           type="submit"

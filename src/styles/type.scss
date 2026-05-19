@@ -26,7 +26,12 @@ $fluid-max-vp: 128rem;
   @return clamp(#{$min}, calc(#{$intercept} + #{$slope * 100}vw), #{$max});
 }
 
+
 // ─── Fluid type scale ─────────────────────────────────────────────────────────
+$titleLead: 1.1;
+$subtitleLead: 1.2;
+$baseLead: 1.5;
+
 $fluid_steps: (
   ft-11: (minSize: 3.26rem, maxSize: 6.2rem,  lead: $titleLead),
   ft-10: (minSize: 3.06rem, maxSize: 5.5rem,  lead: $titleLead),

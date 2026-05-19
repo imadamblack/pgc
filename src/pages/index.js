@@ -135,7 +135,7 @@ const Nav = () => {
           PGC <span className="text-[#27d53b]">Soluciones</span>
         </span>
         <div className="hidden md:flex items-center gap-8">
-          {['Beneficios', 'Servicios', 'Testimonios', 'FAQ'].map((item) => (
+          {['Beneficios'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -152,7 +152,7 @@ const Nav = () => {
       </div>
       {open && (
         <div className="md:hidden border-t border-neutral-100 bg-white px-6 py-4 flex flex-col gap-4">
-          {['Beneficios', 'Servicios', 'Testimonios', 'FAQ'].map((item) => (
+          {['Beneficios'].map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -172,7 +172,7 @@ const Hero = () => (
   <section className="pt-56 pb-24 px-6 relative overflow-hidden" style={{backgroundColor: '#020617'}}>
     {/* Background grid */}
     <div
-      className="absolute inset-0 opacity-[0.04]"
+      className="absolute inset-0 opacity-[0.1]"
       style={{
         backgroundImage:
           'linear-gradient(to right, #fff 1px, transparent 1px), linear-gradient(to bottom, #fff 1px, transparent 1px)',
@@ -200,17 +200,17 @@ const Hero = () => (
           <span className="text-[#27d53b]">{content.hero.subtitle}</span>
         </h1>
 
-        <p className="ft-1 text-neutral-400 mb-10 leading-relaxed">
+        <p className="ft-2 text-neutral-200 mb-10 leading-relaxed">
           {content.hero.description}
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <CTAButton>{content.hero.cta.main}</CTAButton>
-          <CTAButton variant="secondary"
-                     href="#servicios"
-                     className="!border-white/20 !text-neutral-300 hover:!bg-white/10 hover:!text-white">
-            {content.hero.cta.secondary}
-          </CTAButton>
+          {/*<CTAButton variant="secondary"*/}
+          {/*           href="#servicios"*/}
+          {/*           className="!border-white/20 !text-neutral-300 hover:!bg-white/10 hover:!text-white">*/}
+          {/*  {content.hero.cta.secondary}*/}
+          {/*</CTAButton>*/}
         </div>
 
         {/* Stats */}
@@ -229,23 +229,23 @@ const Hero = () => (
 const Beneficios = () => (
   <section id="beneficios" className="py-24 px-6 bg-white">
     <div className="container mx-auto">
-      <div className="max-w-2xl mb-16">
-        <Eyebrow>{content.beneficios.banner.eyebrow}</Eyebrow>
-        <h2 className="ft-7 font-black text-neutral-900  mb-4">
-          {content.beneficios.banner.title}
-        </h2>
-        <p className="text-neutral-500 ft-1 leading-relaxed">{content.beneficios.banner.description}</p>
-      </div>
+      {/*<div className="max-w-2xl mb-16">*/}
+      {/*  <Eyebrow>{content.beneficios.banner.eyebrow}</Eyebrow>*/}
+      {/*  <h2 className="ft-7 font-black text-neutral-900  mb-4">*/}
+      {/*    {content.beneficios.banner.title}*/}
+      {/*  </h2>*/}
+      {/*  <p className="text-neutral-500 ft-1 leading-relaxed">{content.beneficios.banner.description}</p>*/}
+      {/*</div>*/}
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+      <div className="grid grid-cols-1 gap-5 mb-12 max-w-7xl mx-auto">
         {content.beneficios.items.map((item, i) => (
           <div
             key={i}
             className="group p-6 rounded-2xl border border-neutral-100 hover:border-[#27d53b]/20 hover:shadow-xl hover:shadow-green-50 transition-all duration-300 cursor-default"
           >
             <div
-              className="w-11 h-11 rounded-xl bg-[#EBF3FF] text-[#27d53b] flex items-center justify-center mb-5 group-hover:bg-[#27d53b] group-hover:text-white transition-colors duration-300">
-              <Icon name={item.icon} className="w-5 h-5"/>
+              className="w-20 h-20 rounded-xl bg-[#EBF3FF] text-[#27d53b] flex items-center justify-center mb-5 group-hover:bg-[#27d53b] group-hover:text-white transition-colors duration-300">
+              <Icon name={item.icon} className="w-12 h-12"/>
             </div>
             <h3 className="font-bold text-neutral-900 ft-2 mb-2 leading-snug">{item.title}</h3>
             <p className="text-neutral-500 ft-1 leading-relaxed">{item.description}</p>
@@ -253,9 +253,9 @@ const Beneficios = () => (
         ))}
       </div>
 
-      <div className="flex justify-center">
-        <CTAButton>{content.beneficios.cta}</CTAButton>
-      </div>
+      {/*<div className="flex justify-center">*/}
+      {/*  <CTAButton>{content.beneficios.cta}</CTAButton>*/}
+      {/*</div>*/}
     </div>
   </section>
 );
@@ -426,11 +426,16 @@ const FAQ = () => {
 const CTAFinal = () => (
   <section id="contact" className="py-24 px-6 bg-green-600 relative overflow-hidden">
 
-    <div className="max-w-3xl mx-auto text-center relative">
+    <div className="max-w-3xl mx-auto relative">
       <h2 className="ft-7 font-black text-white  mb-4">
         {content.cta.title}
       </h2>
       <p className="text-white ft-2 font-medium mb-10">{content.cta.description}</p>
+      <div>
+        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin costo</p>
+        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin compromiso</p>
+        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>+20 años de experiencia</p>
+      </div>
     </div>
     <div className="max-w-3xl mx-auto mt-20">
       <OptInForm/>
@@ -464,10 +469,10 @@ export default function PGCLandingPage() {
       <Nav/>
       <Hero/>
       <Beneficios/>
-      <Atributos/>
-      <Servicios/>
-      <Testimonios/>
-      <FAQ/>
+      {/*<Atributos/>*/}
+      {/*<Servicios/>*/}
+      {/*<Testimonios/>*/}
+      {/*<FAQ/>*/}
       <CTAFinal/>
       {/*<Footer/>*/}
     </main>

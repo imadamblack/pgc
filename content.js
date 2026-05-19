@@ -5,10 +5,10 @@ export const content = {
   },
   hero: {
     badge: '+20 años de experiencia',
-    title: 'Gestiona la infraestructura tecnológica de tu empresa',
-    subtitle: 'para que no dependas de técnicos improvisados ni de soporte a medias',
+    title: 'Tu infraestructura tecnológica necesita más atención de la que está recibiendo',
+    subtitle: '',
     description:
-      'Estabilizamos la infraestructura tecnológica de las empresas con soporte especializado y soluciones tecnológicas alineadas a tu negocio.',
+      'Ya sea que tengas alguien de IT o no, hay un punto en el que la operación diaria supera la capacidad del equipo. Ahí es donde entramos nosotros.',
     cta: {
       main: 'Obtén un diagnóstico gratis para tu empresa',
       secondary: 'Ver servicios',
@@ -28,34 +28,22 @@ export const content = {
     },
     items: [
       {
-        icon: 'globe',
-        title: 'Trabaja desde cualquier lugar sin perder control',
-        description:
-          'Con escritorios remotos y accesos bien implementados, tu equipo puede operar desde cualquier lugar sin llevarse archivos ni exponer datos sensibles.',
-      },
-      {
         icon: 'shield',
-        title: 'Reduce riesgos que pueden detener tu operación',
+        title: 'Monitoreo preventivo, no reacción improvisada',
         description:
-          'Desde correos maliciosos hasta errores internos, una infraestructura bien gestionada ayuda a contener incidentes antes de que se conviertan en un problema mayor.',
-      },
-      {
-        icon: 'lock',
-        title: 'Protege la información también desde adentro',
-        description:
-          'La seguridad no depende solo de amenazas externas. También requiere control de accesos, permisos y visibilidad sobre quién puede ver, copiar o compartir información.',
+          'Supervisamos tu infraestructura todos los días para detectar riesgos antes de que paren tu operación.',
       },
       {
         icon: 'cpu',
-        title: 'Toma mejores decisiones tecnológicas',
+        title: 'Tu área de IT externa, o el aliado de la que ya tienes',
         description:
-          'No se trata de comprar por comprar. Se trata de elegir equipos, sistemas e infraestructura según cómo trabaja cada área de tu empresa.',
+          'Si no tienes equipo de IT, somos tu área completa. Si ya tienes uno o dos técnicos, cubrimos lo que está fuera de su alcance.',
       },
       {
         icon: 'layers',
-        title: 'Elige la infraestructura adecuada para cada necesidad',
+        title: 'Reportes y documentación desde el primer día',
         description:
-          'No todo debe vivir en la nube ni todo debe quedarse en sitio. Evaluamos qué conviene más según el tipo de sistema, control, rendimiento y operación.',
+          'Sabes exactamente qué está pasando con tu infraestructura. Sin tecnicismos, con información para tomar decisiones.',
       },
     ],
     cta: 'Obtén un diagnóstico gratis para tu empresa',
@@ -211,10 +199,10 @@ export const content = {
     ],
   },
   cta: {
-    title: 'Contáctanos y convierte tu infraestructura tecnológica en una ventaja operativa.',
+    title: '¿Cómo está realmente tu infraestructura hoy?',
     description:
-      'Agenda un diagnóstico gratuito y recibe un análisis de tu infraestructura actual sin compromiso.',
-    cta: 'Obtén un diagnóstico gratis para tu empresa',
+      'Hacemos un diagnóstico sin costo y te decimos qué está funcionando bien, qué representa un riesgo y qué conviene resolver primero. Compártenos unos datos.',
+    cta: 'Obtén un diagnóstico gratis',
   },
   footer: {
     brand: 'PGC Soluciones',
@@ -224,5 +212,5 @@ export const content = {
   thankyou: {
     title: 'Gracias por registrarte',
     description: 'Uno de nuestros técnicos especilaistas en soluciones de negocios te contactará en máximo 24 horas'
-  }
+  },
 };
