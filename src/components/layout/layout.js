@@ -19,7 +19,7 @@ export default function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-      {/*{!isSurvey && <Header />}*/}
+      {!isSurvey && <Header />}
 
       <main className="flex-grow">{children}</main>
 

@@ -2,6 +2,7 @@ export const content = {
   nav: {
     brand: 'PGC Soluciones',
     cta: 'Diagnóstico gratis',
+    links: []
   },
   hero: {
     badge: '+20 años de experiencia',

@@ -22,8 +22,10 @@ const SurveyIntro = () => (
   >
     <div className="text-center max-w-lg">
       <h1 className="ft-6 font-black text-white mb-8 leading-tight">
-        {content.survey.intro.title}
+        ¿El soporte tecnológico de tu empresa es "apágala y vuélvela a prender"?
       </h1>
+      <p>Cada falla técnica que no se previene le cuesta a tu empresa tiempo, dinero y operación detenida. Hay una mejor forma de manejarlo.
+      </p>
 
       <div className="w-full h-3 bg-white/20 rounded-full overflow-hidden mt-12 mb-4">
         <motion.div
@@ -72,8 +74,8 @@ const buildFormSteps = ({ fullName, phone }) => [
   {
     type: 'opt-in',
     name: 'optin',
-    title: content.survey.optin.title,
-    description: content.survey.optin.description,
+    title: content.survey?.optin?.title,
+    description: content.survey?.optin?.description,
     fields: [
       {
         type: 'text',

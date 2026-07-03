@@ -1,9 +1,269 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { content } from '/content';
 import OptInForm from '@/components/form/opt-in-form';
 import scrollDepth from '@/utils/scrollDepth';
+
+export const content = {
+  nav: {
+    brand: 'PGC Soluciones',
+    cta: 'Diagnóstico gratis',
+  },
+  hero: {
+    badge: '+20 años de experiencia',
+    title: 'Ten un aliado tecnológico de confianza, no solo un proveedor que resuelve fallas',
+    subtitle: '',
+    description: [
+      'Más de 20 años entendiendo cómo trabajan las empresas, y a estar ahí antes de que tengas que tomar una decisión tecnológica a ciegas.',
+    ],
+    cta: {
+      main: 'Contáctanos',
+      secondary: 'Ver servicios',
+    },
+    stats: [
+      { value: '+20', label: 'Años de experiencia' },
+      { value: '+200', label: 'Empresas atendidas' },
+      { value: '24/7', label: 'Monitoreo continuo' },
+    ],
+  },
+  autoseleccion: {
+    banner: {
+      title: '¿Esto es para ti?',
+    },
+    intro: 'No todas las empresas necesitan un aliado tecnológico externo todavía. Esto es para ti si:',
+    items: [
+      'Tu equipo administrativo depende cada vez más de la tecnología para operar.',
+      'Tu empresa está creciendo y empieza a sentirse desordenada.',
+      'No tienes a una persona cuya función principal sea resolver estos temas o está sobrecargada.',
+      'Manejas información sensible de clientes y quieres tener claridad sobre cómo está protegida.',
+      'Cuando surge una decisión de tecnología, prefieres tener a alguien que te oriente, en vez de solo por prueba y error.',
+    ],
+    cta: 'Obtén un diagnóstico gratis para tu empresa',
+  },
+  beneficios: {
+    banner: {
+      eyebrow: '¿Por qué PGC?',
+      title: '¿Por qué elegir PGC Soluciones para tu negocio?',
+      description:
+        'Muchas veces los proyectos de tecnología se complican porque "negocio" y "tecnología" no hablan el mismo idioma. Ahí es donde nosotros entramos. No solo para resolver fallas, sino para que tengas a alguien de confianza antes de invertir, cambiar de sistema o tomar cualquier decisión que afecte tu operación. Estas son 6 razones por las que conviene tener tu infraestructura tecnológica gestionada por especialistas:',
+    },
+    items: [
+      {
+        icon: 'shield',
+        title: 'Ten a alguien de confianza antes de decidir, no solo cuando algo falla',
+        description:
+          'No se trata solo de resolver problemas cuando aparecen. Se trata de tener un aliado tecnológico que te oriente antes de comprar equipo, cambiar de proveedor o invertir en infraestructura nueva.',
+      },
+      // {
+      //   icon: 'globe',
+      //   title: 'Trabaja desde cualquier lugar sin perder control de tu información',
+      //   description:
+      //     'Con escritorios remotos y accesos bien implementados, tu equipo puede operar desde cualquier lugar sin llevarse archivos ni exponer datos sensibles.',
+      // },
+      {
+        icon: 'shield-check',
+        title: 'Reduce riesgos que pueden detener tu operación',
+        description:
+          'Desde correos maliciosos hasta errores internos, una infraestructura bien gestionada ayuda a contener incidentes antes de que se conviertan en un problema mayor.',
+      },
+      {
+        icon: 'lock',
+        title: 'Protege tu empresa también físicamente, no solo en el sistema',
+        description:
+          'La seguridad no es solo digital. Instalamos y monitoreamos cámaras de vigilancia junto con el control de accesos y permisos, para que tengas visibilidad completa de tu operación.',
+      },
+      {
+        icon: 'cpu',
+        title: 'Toma mejores decisiones tecnológicas para tu operación',
+        description:
+          'No se trata de comprar por comprar. Se trata de elegir equipos, sistemas e infraestructura según cómo trabaja cada área de tu empresa, con alguien que te lo explique en tu idioma.',
+      },
+      {
+        icon: 'server',
+        title: 'Elige la infraestructura adecuada para cada necesidad',
+        description:
+          'No todo debe vivir en la nube ni todo debe quedarse en sitio. Evaluamos qué conviene más según el tipo de sistema, control, rendimiento y operación que necesita tu empresa.',
+      },
+    ],
+    cta: 'Obtén un diagnóstico gratis para tu empresa',
+  },
+  atributos: {
+    banner: {
+      eyebrow: 'Cómo trabajamos',
+      title: 'Si la tecnología sostiene tu empresa, debe estar bien gestionada',
+      description:
+        'Una infraestructura tecnológica estable no ocurre por casualidad. Se construye con monitoreo, mantenimiento, procesos claros y una relación de confianza real, no de proveedor a la distancia. Así es como trabajamos:',
+    },
+    items: [
+      {
+        number: '01',
+        title: 'Entendemos primero cómo funciona tu empresa',
+        description:
+          'Antes de hablar de plataformas o herramientas, analizamos cómo opera tu negocio, qué necesita realmente cada área y construimos una relación de confianza a partir de ahí.',
+      },
+      {
+        number: '02',
+        title: 'Monitoreo preventivo',
+        description:
+          'Supervisamos tu infraestructura para detectar riesgos, prevenir fallas y mantener la continuidad operativa.',
+      },
+      {
+        number: '03',
+        title: 'Administración de servidores e infraestructura',
+        description:
+          'Configuramos, mantenemos y optimizamos los servidores y entornos que soportan tus sistemas.',
+      },
+      {
+        number: '04',
+        title: 'Soporte remoto y en sitio',
+        description:
+          'Atendemos cualquier falla rápidamente de forma remota o directamente en tus instalaciones.',
+      },
+    ],
+    cta: 'Obtén un diagnóstico gratis para tu empresa',
+  },
+  servicios: {
+    banner: {
+      eyebrow: 'Servicios',
+      title: 'Todo esto podemos resolver en tu negocio',
+    },
+    items: [
+      {
+        icon: 'server',
+        title: 'Infraestructura y soporte',
+        items: [
+          'Mantenimiento preventivo y correctivo',
+          'Soporte remoto y en sitio',
+          'Monitoreo de equipos, red y servidores',
+          'Pólizas de mantenimiento',
+        ],
+      },
+      {
+        icon: 'monitor',
+        title: 'Equipo de cómputo e impresión',
+        items: [
+          'Reparación de equipo de cómputo',
+          'Venta e instalación de computadoras y periféricos',
+          'Reparación y venta de impresoras',
+          'Venta de consumibles y accesorios',
+        ],
+      },
+      {
+        icon: 'wifi',
+        title: 'Redes y conectividad',
+        items: [
+          'Instalación y configuración de redes',
+          'Diagnóstico y optimización',
+          'Seguridad y monitoreo de red',
+          'Acceso y escritorios remotos',
+        ],
+      },
+      {
+        icon: 'shield-check',
+        title: 'Seguridad y continuidad',
+        items: [
+          'Control de accesos y permisos',
+          'Instalación y monitoreo de cámaras de vigilancia',
+          'Respaldos de información',
+          'Protección ante incidentes y ransomware',
+          'Documentación e historial técnico',
+        ],
+      },
+      {
+        icon: 'code',
+        title: 'Proyectos tecnológicos a la medida',
+        items: [
+          'Análisis de necesidades',
+          'Diseño de soluciones',
+          'Infraestructura híbrida: nube y servidores',
+          'Selección de equipos según perfil de usuario',
+          'Implementación y acompañamiento',
+        ],
+      },
+    ],
+    cta: 'Obtén un diagnóstico gratis para tu empresa',
+  },
+  testimonios: {
+    banner: {
+      eyebrow: 'Testimonios',
+      title: 'Confía en nosotros… o mejor aún, en quienes ya probaron nuestros servicios.',
+    },
+    items: [
+      {
+        quote:
+          'Más allá del soporte técnico, PGC funciona como un aliado tecnológico. Nos ayudan a resolver problemas, analizar opciones y tomar mejores decisiones para la empresa.',
+        author: 'Director',
+        company: 'Grupo ALCREQ',
+      },
+      {
+        quote:
+          'Antes teníamos fallas constantes en la red y los servidores. Desde que PGC administra nuestra infraestructura prácticamente desaparecieron los tiempos muertos.',
+        author: 'Director administrativo',
+        company: 'Empresa de construcción',
+      },
+      {
+        quote:
+          'Lo más valioso es que ya no dependemos de técnicos improvisados. Tenemos un sistema claro de soporte y monitoreo.',
+        author: 'Socio',
+        company: 'Despacho contable',
+      },
+      {
+        quote:
+          'Ahora sabemos exactamente cómo está nuestra infraestructura tecnológica gracias a los reportes y seguimiento.',
+        author: 'Gerente de operaciones',
+        company: 'Empresa comercial',
+      },
+    ],
+    cta: 'Obtén un diagnóstico gratis para tu empresa',
+  },
+  faqs: {
+    banner: {
+      eyebrow: 'FAQ',
+      title: 'Si tienes dudas, aquí las resolvemos:',
+    },
+    items: [
+      {
+        q: '¿Este servicio sustituye a un departamento interno de IT?',
+        a: 'Sí. Con PGC es como tener tu propio equipo de IT externo: especialistas que conocen tu infraestructura y pueden resolver cualquier situación tecnológica cuando surja, además de acompañarte en las decisiones antes de que surjan los problemas.',
+      },
+      {
+        q: '¿Cómo funciona el soporte cuando surge un problema?',
+        a: 'Las incidencias se atienden primero de forma remota para resolver rápidamente. Si el problema requiere intervención física, el equipo técnico se presenta en sitio.',
+      },
+      {
+        q: '¿Mi empresa es demasiado pequeña o demasiado grande para este servicio?',
+        a: 'Lo que importa no es cuántos empleados tienes, sino cuánta gente en tu equipo depende de la tecnología para trabajar. Si tienes entre 10 y 15 personas usando computadora, correo o sistemas propios de la empresa, y sientes que la tecnología empezó a pedir más estructura de la que hoy tiene, somos el aliado adecuado para tu empresa, sin importar si tu plantilla total es de 15 o de 50 personas.',
+      },
+      {
+        q: '¿Qué tan seguro es dar acceso a un proveedor externo?',
+        a: 'Tu información siempre está protegida, somos una empresa profesional y hacemos la intervención con acceso controlado y registro de actividad. Además, cada acción queda documentada dentro del historial técnico.',
+      },
+      {
+        q: '¿Por qué trabajar bajo póliza mensual?',
+        a: 'Este modelo nos permite tener un mayor control y poder brindarte un soporte continuo y sin fallas.',
+      },
+      {
+        q: '¿Cómo sé que van a cumplir lo que prometen?',
+        a: 'La mayoría de nuestros clientes llegan por recomendación directa de otra empresa que ya trabaja con nosotros. Desde el diagnóstico inicial definimos contigo el alcance exacto, y damos seguimiento con reportes periódicos para que siempre sepas en qué estamos trabajando y qué resultados vas obteniendo.',
+      },
+    ],
+  },
+  cta: {
+    title: 'Contáctanos y ten al aliado tecnológico para decidir y operar sin sorpresas',
+    description:
+      'Hacemos un diagnóstico sin costo y te decimos qué representa un riesgo y qué conviene resolver primero. Compártenos unos datos.',
+    cta: 'Obtén un diagnóstico gratis',
+  },
+  footer: {
+    brand: 'PGC Soluciones',
+    tagline: 'Infraestructura tecnológica para empresas que no se detienen.',
+    copy: '© 2025 PGC Soluciones. Todos los derechos reservados.',
+  },
+  thankyou: {
+    title: 'Gracias por registrarte',
+    description: 'Uno de nuestros técnicos especilaistas en soluciones de negocios te contactará en máximo 24 horas'
+  },
+};
 
 const Icon = ({name, className = 'w-5 h-5'}) => {
   const icons = {
@@ -103,6 +363,8 @@ const Icon = ({name, className = 'w-5 h-5'}) => {
 const CTAButton = ({children, variant = 'primary', href= '/#contact', className = ''}) => {
   if (variant === 'primary') {
     return (
+      <div className="max-w-4xl border-y border-neutral-500 py-12">
+      <p className="text-white mb-4">Platiquemos de tu próxima decisión tecnológica</p>
       <a
         href={href}
         className={`cursor-pointer inline-flex items-center gap-2 bg-[#27d53b] hover:bg-[#003D99] text-white font-semibold px-7 py-4 rounded-xl transition-all duration-200 shadow-lg shadow-green-900/30 hover:shadow-green-900/50 hover:-tranneutral-y-0.5 ft-1 ${className}`}
@@ -110,6 +372,7 @@ const CTAButton = ({children, variant = 'primary', href= '/#contact', className 
         {children}
         <Icon name="arrow" className="w-4 h-4"/>
       </a>
+      </div>
     );
   }
   return (
@@ -169,7 +432,7 @@ const Nav = () => {
   );
 };
 const Hero = () => (
-  <section className="pt-56 pb-24 px-6 relative overflow-hidden" style={{backgroundColor: '#020617'}}>
+  <section className="pt-20 md:pt-56 pb-24 px-6 relative overflow-hidden" style={{backgroundColor: '#020617'}}>
     {/* Background grid */}
     <div
       className="absolute inset-0 opacity-[0.1]"
@@ -200,9 +463,13 @@ const Hero = () => (
           <span className="text-[#27d53b]">{content.hero.subtitle}</span>
         </h1>
 
-        <p className="ft-2 text-neutral-200 mb-10 leading-relaxed">
-          {content.hero.description}
-        </p>
+        <div className="mb-10 space-y-4">
+          {content.hero.description.map((paragraph, i) => (
+            <p key={i} className="ft-2 text-neutral-200 leading-relaxed">
+              {paragraph}
+            </p>
+          ))}
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mb-16">
           <CTAButton>{content.hero.cta.main}</CTAButton>
@@ -222,6 +489,28 @@ const Hero = () => (
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+);
+const Autoseleccion = () => (
+  <section id="autoseleccion" className="py-24 px-6 bg-neutral-50">
+    <div className="container mx-auto max-w-3xl">
+      <h2 className="ft-7 font-black text-neutral-900 text-center mb-8">
+        {content.autoseleccion.banner.title}
+      </h2>
+      <p className="text-neutral-500 ft-1 leading-relaxed mb-6">{content.autoseleccion.intro}</p>
+      <ul className="space-y-4 mb-8">
+        {content.autoseleccion.items.map((item, i) => (
+          <li key={i} className="flex items-start gap-3 text-neutral-700 ft-1 leading-relaxed">
+            <Icon name="check" className="w-5 h-5 text-[#27d53b] flex-shrink-0 mt-1"/>
+            {item}
+          </li>
+        ))}
+      </ul>
+      <p className="text-neutral-500 ft-1 leading-relaxed mb-10">{content.autoseleccion.outro}</p>
+      <div className="flex justify-center">
+        <CTAButton>{content.autoseleccion.cta}</CTAButton>
       </div>
     </div>
   </section>
@@ -431,11 +720,11 @@ const CTAFinal = () => (
         {content.cta.title}
       </h2>
       <p className="text-white ft-2 font-medium mb-10">{content.cta.description}</p>
-      <div>
-        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin costo</p>
-        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin compromiso</p>
-        <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>+20 años de experiencia</p>
-      </div>
+      {/*<div>*/}
+      {/*  <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin costo</p>*/}
+      {/*  <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>Sin compromiso</p>*/}
+      {/*  <p className="ft-2 flex gap-4 text-white"><Icon name="check" className="w-8 h-8 mt-2"/>+20 años de experiencia</p>*/}
+      {/*</div>*/}
     </div>
     <div className="max-w-3xl mx-auto mt-20">
       <OptInForm/>
@@ -466,15 +755,14 @@ export default function PGCLandingPage() {
 
   return (
     <main className="font-sans antialiased">
-      <Nav/>
       <Hero/>
+      <Autoseleccion/>
       <Beneficios/>
-      {/*<Atributos/>*/}
-      {/*<Servicios/>*/}
-      {/*<Testimonios/>*/}
-      {/*<FAQ/>*/}
+      <Atributos/>
+      <Servicios/>
+      <Testimonios/>
+      <FAQ/>
       <CTAFinal/>
-      {/*<Footer/>*/}
     </main>
   );
 }
